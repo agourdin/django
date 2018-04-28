@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Posts</title>
+</head>
+
+<body>
+
+<div id="sidebar">
+        {% block sidebar %}
+        {% if user.is_authenticated %}
+          {{ request.user }} | <a href="#" onClick="document.getElementById('logoutform').submit()"><button type="button">Logout</button></a>
+          <form id="logoutform" method="POST" action="{% url 'tools:logout' %}">
+          {% csrf_token %}
+          <input type="hidden">
+          </form>
+          {% else %}
+          <a href="{% url 'tools:signup' %}">Sign up</a> | <a href="{% url 'tools:login' %}">Login</a>
+        {% endif %}
+        <br></br>
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
