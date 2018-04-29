@@ -101,10 +101,8 @@ def profile_edit(request):
         form_basic = UserProfileBasic(request.POST, instance=user)
         form_profile = UserProfile(request.POST, instance=profile)
         if form_basic.is_valid() and form_profile.is_valid():
-            user_info = form_basic.save()
-            user_profile = form_profile.save()
-            user_info.save()
-            user_profile.save()
+            form_basic.save()
+            form_profile.save()
             return redirect('tools:profile')
         return redirect('tools:profile_edit')
     else:
