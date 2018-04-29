@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Profile:</h2>
+<ul>
+  <li><b>First Name:</b> {{ user.first_name }}</li>
+  <li><b>Last Name:</b> {{ user.last_name }}</li>
+  <li><b>Email:</b> {{ user.email }}</li>
+  <li><b>Phone Number:</b> {{ profile.phone_number }}</li>
+  <li><b>Address:</b> {{ profile.address1 }}</li>
+  <li><b>Apt/Suite:</b> {{ profile.address2 }}</li>
+  <li><b>City:</b> {{ profile.city }}</li>
+  <li><b>State:</b> {{ profile.state }}</li>
+  <li><b>Zipcode:</b> {{ profile.zipcode }}</li>
+</ul>
+<br></br>
+<a href="{% url 'tools:profile_edit' %}">Click here to edit your profile information</a>
+{% endblock %}

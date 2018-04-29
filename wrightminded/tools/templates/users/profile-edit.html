@@ -1,0 +1,11 @@
+Hi, {{ username }}, please update your profile here.
+<br></br>
+<form action="/portal/profile/edit/" method="post">
+    {% csrf_token %}
+    {{ form_basic }}
+    <br></br>
+    {{ form_profile }}
+    <input type="reset" value="Reset" />
+    <input type="submit" value="Save" />
+</form>
+<form action="/portal/profile/" method="get"><input type="submit" value="Cancel" /></form>

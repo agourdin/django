@@ -8,7 +8,7 @@
 <div id="sidebar">
         {% block sidebar %}
         {% if user.is_authenticated %}
-          {{ request.user }} | <a href="#" onClick="document.getElementById('logoutform').submit()"><button type="button">Logout</button></a>
+          Welcome, {{ request.user }}! <a href="{% url 'tools:portal' %}">Home</a> <a href="{% url 'tools:profile' %}">Profile</a> | <a href="#" onClick="document.getElementById('logoutform').submit()"><button type="button">Logout</button></a>
           <form id="logoutform" method="POST" action="{% url 'tools:logout' %}">
           {% csrf_token %}
           <input type="hidden">

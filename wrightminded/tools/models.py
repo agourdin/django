@@ -2,6 +2,8 @@ from django.db import models
 from django.conf import settings
 from django.core.validators import EmailValidator, RegexValidator
 
+from . import model_utils
+
 # Create your models here.
 
 class Profile(models.Model):
@@ -17,6 +19,7 @@ class Profile(models.Model):
     city = models.CharField(max_length=50, null=True, blank=True)
     state = models.CharField(max_length=2, null=True, blank=True)
     zipcode = models.PositiveIntegerField(null=True, blank=True)
+    country = model_utils.CountryField(null=True, blank=True)
     enrollment_status = models.CharField(max_length=25, null=True, blank=True)
     payment_status = models.PositiveSmallIntegerField(null=True, blank=True)
     hours_purchased = models.PositiveSmallIntegerField(null=True, blank=True)
